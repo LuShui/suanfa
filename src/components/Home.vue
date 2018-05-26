@@ -1,6 +1,6 @@
 <template>
   <div>
-    this is test2 branch
+    this master branch
   </div>
 </template>
 
