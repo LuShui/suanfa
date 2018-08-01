@@ -1,23 +1,24 @@
 <template>
   <div>
-    this master branch
+    <Item v-for="(json, index) in list" :json="json" :key="index" />
   </div>
 </template>
 
 <script>
-import { minToMax } from '../utils/Utils'
+import Item from '@/components/Item'
+import listsoure from '@/utils/List'
 export default {
   name: 'Home',
-  created () {
-    let array = [ 1, 23, 28, 32, 12, 213, 14, 3 ]
-    let sortArray = minToMax(array)
-    console.log(sortArray)
+  data () {
+    return {
+      list: listsoure
+    }
+  },
+  components: {
+    Item
   }
 }
-
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {
   font-weight: normal;

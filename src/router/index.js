@@ -13,6 +13,14 @@ export default new Router({
           resolve(require('@/components/Home'))
         })
       }
+    }, {
+      path: '/bubble',
+      name: 'bubble',
+      component: function (resolve) {
+        require.ensure([], function (require) {
+          resolve(require('@/components/detil/bubble'))
+        })
+      }
     }
   ]
 })
