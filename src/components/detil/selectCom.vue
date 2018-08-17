@@ -8,23 +8,18 @@
 <script>
 export default {
   name: 'selectCom',
-  data () {
-    return {
-      array: [],
-      sortArray: []
-    }
-  },
   created () {
+    let array = []
     for (let i = 0 ; i < 10 ; i ++) {
       let num = parseInt(Math.random() * 1000);
-      this.array.push(num)
+      array.push(num)
     }
-    this.sortArray = this.selectSort(this.array)
+    console.log(array)
+    let sortArray = this.selectSortMinToMax(array)
+    console.log(sortArray)
   },
   methods: {
-    selectSort (array) {
-      console.warn('原数组')
-      console.log(array)
+    selectSortMinToMax (array) {
       let arrLne = array.length
       for (let i = 0; i < arrLne - 1 ; i ++) {
         let minIndex = i
@@ -37,8 +32,21 @@ export default {
         array[i] = array[minIndex]
         array[minIndex] = temp
       }
-      console.warn('排序后数组')
-      console.log(array)
+      return array
+    },
+    selectSortMaxToMin (array) {
+      let arrLen = array.length
+      for (let i = 0; i < arrLen - 1; i ++) {
+        let maxIndex = i
+        for (let j = i + 1; j < arrLen; j ++) {
+          if (array[maxIndex] < array[j]) {
+            maxIndex = j
+          }
+        }
+        let temp = array[i]
+        array[i] = array[maxIndex]
+        array[maxIndex] = temp
+      }
       return array
     }
   },
