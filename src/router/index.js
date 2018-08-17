@@ -21,6 +21,14 @@ export default new Router({
           resolve(require('@/components/detil/bubble'))
         })
       }
+    }, {
+      path: '/selectCom',
+      name: 'selectCom',
+      component: function (resolve) {
+        require.ensure([], function (require) {
+          resolve(require('@/components/detil/selectCom'))
+        })
+      }
     }
   ]
 })
